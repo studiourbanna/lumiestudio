@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInstagram, faTiktok, faFacebookF, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { useReveal } from '../../hooks/useReveal';
 import { SERVICES } from '../../services/data';
 
@@ -304,16 +306,23 @@ export const HomePage: React.FC = () => {
           <div>
             <p style={{ fontSize: '.85rem', lineHeight: 1.8, marginTop: '1rem' }}>Studio de beleza e cosméticos comprometido com a sua essência.</p>
             <div style={{ display: 'flex', gap: '.8rem', marginTop: '1.4rem' }}>
-              {['ig','tt','fb'].map(s => (
-                <a key={s} href="#" style={{
+              {[
+                { icon: faInstagram,  href: 'https://instagram.com/lumiestudio' },
+                { icon: faTiktok,     href: 'https://tiktok.com/@lumiestudio' },
+                { icon: faFacebookF,  href: 'https://facebook.com/lumiestudio' },
+                { icon: faWhatsapp,   href: 'https://wa.me/5511999999999' },
+              ].map(({ icon, href }) => (
+                <a key={href} href={href} target="_blank" rel="noreferrer" style={{
                   width: 36, height: 36, border: '1px solid rgba(175,160,144,.3)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  color: 'var(--nude)', fontSize: '.8rem', textTransform: 'uppercase',
+                  color: 'var(--nude)', fontSize: '1rem',
                   transition: 'border-color .25s, color .25s',
                 }}
                   onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'var(--gold)'; (e.currentTarget as HTMLElement).style.color = 'var(--gold)'; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(175,160,144,.3)'; (e.currentTarget as HTMLElement).style.color = 'var(--nude)'; }}
-                >{s}</a>
+                >
+                  <FontAwesomeIcon icon={icon} />
+                </a>
               ))}
             </div>
           </div>
