@@ -310,7 +310,7 @@ export const HomePage: React.FC = () => {
                 { icon: faInstagram,  href: 'https://instagram.com/lumiestudio' },
                 { icon: faTiktok,     href: 'https://tiktok.com/@lumiestudio' },
                 { icon: faFacebookF,  href: 'https://facebook.com/lumiestudio' },
-                { icon: faWhatsapp,   href: 'https://wa.me/5511999999999' },
+                { icon: faWhatsapp,   href: 'https://wa.me/5511995297274' },
               ].map(({ icon, href }) => (
                 <a key={href} href={href} target="_blank" rel="noreferrer" style={{
                   width: 36, height: 36, border: '1px solid rgba(175,160,144,.3)',
@@ -329,7 +329,7 @@ export const HomePage: React.FC = () => {
           {[
             { title: 'Serviços', items: ['Skincare','Manicure','Sobrancelhas','Spa','Consultoria'] },
             { title: 'Studio', items: ['Sobre nós','Equipe','Blog','Contato'] },
-            { title: 'Contato', items: ['📍 São Paulo, SP','📞 (11) 9 9999-9999','✉️ ola@lumie.com.br','⏰ Seg–Sáb: 9h–19h'] },
+            { title: 'Contato', items: ['📍 R. Areado, 11 - Carapicuíba/SP', '📞 (11) 99529-7274', '✉️ ola@lumiestudio.com.br', '⏰ Seg–Sáb: 9h–19h'] },
           ].map(col => (
             <div key={col.title}>
               <h4 style={{ fontSize: '.68rem', letterSpacing: '.25em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '1.2rem' }}>{col.title}</h4>
