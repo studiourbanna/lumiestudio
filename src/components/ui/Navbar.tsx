@@ -12,12 +12,21 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const links = [
-    { label: 'Serviços', to: '/#servicos' },
-    { label: 'Sobre',    to: '/#sobre' },
+  const anchorLinks = [
+    { label: 'Serviços',    to: '/#servicos' },
+    { label: 'Sobre',       to: '/#sobre' },
     { label: 'Depoimentos', to: '/#depoimentos' },
-    { label: 'Contato',  to: '/#contato' },
   ];
+
+  const isActive = (path: string) => location.pathname === path;
+
+  const linkStyle = (active = false): React.CSSProperties => ({
+    fontSize: '.75rem', letterSpacing: '.2em', textTransform: 'uppercase',
+    color: active ? 'var(--brown)' : 'var(--text-soft)',
+    textDecoration: 'none', transition: 'color .25s',
+    borderBottom: active ? '1px solid var(--gold)' : '1px solid transparent',
+    paddingBottom: '2px',
+  });
 
   return (
     <nav style={{
@@ -35,31 +44,34 @@ export const Navbar: React.FC = () => {
       </Link>
 
       {/* Desktop */}
-      <ul style={{ display: 'flex', gap: '2.4rem', listStyle: 'none' }} className="nav-desktop">
-        {links.map(l => (
+      <ul style={{ display: 'flex', gap: '2.4rem', listStyle: 'none', alignItems: 'center' }} className="nav-desktop">
+        {anchorLinks.map(l => (
           <li key={l.to}>
-            <a href={l.to} style={{
-              fontSize: '.75rem', letterSpacing: '.2em', textTransform: 'uppercase',
-              color: 'var(--text-soft)', textDecoration: 'none', transition: 'color .25s',
-            }}
+            <a href={l.to} style={linkStyle()}
               onMouseEnter={e => (e.currentTarget.style.color = 'var(--brown)')}
               onMouseLeave={e => (e.currentTarget.style.color = 'var(--text-soft)')}
             >{l.label}</a>
           </li>
         ))}
+        <li>
+          <Link to="/contato" style={linkStyle(isActive('/contato'))}
+            onMouseEnter={e => (e.currentTarget.style.color = 'var(--brown)')}
+            onMouseLeave={e => (e.currentTarget.style.color = isActive('/contato') ? 'var(--brown)' : 'var(--text-soft)')}
+          >Contato</Link>
+        </li>
       </ul>
 
       <Link to="/agendar" style={{
         fontSize: '.75rem', letterSpacing: '.2em', textTransform: 'uppercase',
         padding: '.6rem 1.6rem',
         border: '1px solid var(--gold)',
-        color: 'var(--brown)',
-        background: location.pathname === '/agendar' ? 'var(--gold)' : 'transparent',
+        color: isActive('/agendar') ? 'white' : 'var(--brown)',
+        background: isActive('/agendar') ? 'var(--gold)' : 'transparent',
         transition: 'background .3s, color .3s',
       }}
         onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'var(--gold)'; (e.currentTarget as HTMLElement).style.color = 'white'; }}
         onMouseLeave={e => {
-          if (location.pathname !== '/agendar') {
+          if (!isActive('/agendar')) {
             (e.currentTarget as HTMLElement).style.background = 'transparent';
             (e.currentTarget as HTMLElement).style.color = 'var(--brown)';
           }
