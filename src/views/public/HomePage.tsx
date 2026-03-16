@@ -346,7 +346,10 @@ export const HomePage: React.FC = () => {
         </div>
         <div style={{ paddingTop: '1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '.72rem', opacity: .5 }}>
           <span>© 2025 Lumiê Studio. Todos os direitos reservados.</span>
-          <span>Feito com ✦ para realçar a sua beleza.</span>
+          <span style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
+            <a href="/termos" style={{ color: 'var(--nude)', textDecoration: 'none' }}>Termos & Políticas</a>
+            <span>Feito com ✦ para realçar a sua beleza.</span>
+          </span>
         </div>
       </footer>
     </div>
