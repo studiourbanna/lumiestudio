@@ -64,6 +64,12 @@ export const Navbar: React.FC = () => {
             onMouseLeave={e => (e.currentTarget.style.color = isActive('/contato') ? 'var(--brown)' : 'var(--text-soft)')}
           >Contato</Link>
         </li>
+        <li>
+          <Link to="/minha-conta" style={linkStyle(isActive('/minha-conta'))}
+            onMouseEnter={e => (e.currentTarget.style.color = 'var(--brown)')}
+            onMouseLeave={e => (e.currentTarget.style.color = isActive('/minha-conta') ? 'var(--brown)' : 'var(--text-soft)')}
+          >Minha Conta</Link>
+        </li>
       </ul>
 
       <Link to="/agendar" style={{

@@ -10,6 +10,7 @@ import { TermsOfUsePage } from '../views/public/TermsOfUsePage';
 import { PrivacyPolicyPage } from '../views/public/PrivacyPolicyPage';
 import { CancellationPolicyPage } from '../views/public/CancellationPolicyPage';
 import { TestimonialsPage } from '../views/public/TestimonialsPage';
+import { ClientPortalPage } from '../views/public/ClientPortalPage';
 import { AdminLoginPage } from '../views/admin/AdminLoginPage';
 import { AdminDashboardPage } from '../views/admin/AdminDashboardPage';
 import { useAuthStore } from '../store';
@@ -37,7 +38,8 @@ export const AppRouter: React.FC = () => (
       <Route path="/termos/uso"           element={<PublicLayout><TermsOfUsePage /></PublicLayout>} />
       <Route path="/termos/privacidade"   element={<PublicLayout><PrivacyPolicyPage /></PublicLayout>} />
       <Route path="/termos/cancelamento"  element={<PublicLayout><CancellationPolicyPage /></PublicLayout>} />
-      <Route path="/depoimentos" element={<PublicLayout><TestimonialsPage /></PublicLayout>} />
+      <Route path="/depoimentos"    element={<PublicLayout><TestimonialsPage /></PublicLayout>} />
+      <Route path="/minha-conta"    element={<PublicLayout><ClientPortalPage /></PublicLayout>} />
       <Route path="/admin"       element={<AdminLoginPage />} />
       <Route path="/admin/dashboard" element={
         <ProtectedRoute><AdminDashboardPage /></ProtectedRoute>
