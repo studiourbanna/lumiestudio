@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faTiktok, faFacebookF, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { useReveal } from '../../hooks/useReveal';
 import { SERVICES, PROFESSIONALS } from '../../services/data';
+import logoImg from '../../assets/logo.png';
 
 // Reveal wrapper component
 const Reveal: React.FC<{ children: React.ReactNode; delay?: number }> = ({ children, delay = 0 }) => {
@@ -315,20 +316,22 @@ export const HomePage: React.FC = () => {
       {/* ── FOOTER ── */}
       <footer style={{ background: 'var(--brown-dark)', color: 'var(--nude)', padding: '4rem 5% 2rem' }}>
         <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1.5fr', gap: '3rem', paddingBottom: '2.5rem', borderBottom: '1px solid rgba(175,160,144,.15)' }}>
+
+          {/* Brand + social */}
           <div>
-            <p style={{ fontSize: '.85rem', lineHeight: 1.8, marginTop: '1rem' }}>Studio de beleza e cosméticos comprometido com a sua essência.</p>
+            <img src={logoImg} alt="Lumiê Studio" style={{ height: 70, objectFit: 'contain', marginBottom: '1rem', display: 'block' }} />
+            <p style={{ fontSize: '.82rem', lineHeight: 1.8, color: 'rgba(175,160,144,.8)' }}>Studio de beleza e cosméticos comprometido com a sua essência.</p>
             <div style={{ display: 'flex', gap: '.8rem', marginTop: '1.4rem' }}>
               {[
-                { icon: faInstagram,  href: 'https://instagram.com/lumiestudio' },
-                { icon: faTiktok,     href: 'https://tiktok.com/@lumiestudio' },
-                { icon: faFacebookF,  href: 'https://facebook.com/lumiestudio' },
-                { icon: faWhatsapp,   href: 'https://wa.me/5511995297274' },
+                { icon: faInstagram, href: 'https://instagram.com/lumiestudio' },
+                { icon: faTiktok,    href: 'https://tiktok.com/@lumiestudio' },
+                { icon: faFacebookF, href: 'https://facebook.com/lumiestudio' },
+                { icon: faWhatsapp,  href: 'https://wa.me/5511995297274' },
               ].map(({ icon, href }) => (
                 <a key={href} href={href} target="_blank" rel="noreferrer" style={{
                   width: 36, height: 36, border: '1px solid rgba(175,160,144,.3)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  color: 'var(--nude)', fontSize: '1rem',
-                  transition: 'border-color .25s, color .25s',
+                  color: 'var(--nude)', fontSize: '1rem', transition: 'border-color .25s, color .25s',
                 }}
                   onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'var(--gold)'; (e.currentTarget as HTMLElement).style.color = 'var(--gold)'; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(175,160,144,.3)'; (e.currentTarget as HTMLElement).style.color = 'var(--nude)'; }}
@@ -338,32 +341,85 @@ export const HomePage: React.FC = () => {
               ))}
             </div>
           </div>
-          {[
-            { title: 'Serviços', items: ['Skincare','Manicure','Sobrancelhas','Spa','Consultoria'] },
-            { title: 'Studio', items: ['Sobre nós','Equipe','Blog','Contato'] },
-            { title: 'Contato', items: ['📍 R. Areado, 11 - Carapicuíba/SP', '📞 (11) 99529-7274', '✉️ ola@lumiestudio.com.br', '⏰ Seg–Sáb: 9h–19h'] },
-          ].map(col => (
-            <div key={col.title}>
-              <h4 style={{ fontSize: '.68rem', letterSpacing: '.25em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '1.2rem' }}>{col.title}</h4>
-              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '.6rem' }}>
-                {col.items.map(item => (
-                  <li key={item}><a href="#" style={{ fontSize: '.82rem', color: 'var(--nude)', textDecoration: 'none', transition: 'color .25s' }}
+
+          {/* Serviços */}
+          <div>
+            <h4 style={{ fontSize: '.68rem', letterSpacing: '.25em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '1.2rem' }}>Serviços</h4>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '.6rem' }}>
+              {['Skincare','Manicure','Sobrancelhas','Spa','Consultoria'].map(item => (
+                <li key={item}>
+                  <Link to={`/agendar?service=${item.toLowerCase()}`} style={{ fontSize: '.82rem', color: 'var(--nude)', textDecoration: 'none', transition: 'color .25s' }}
                     onMouseEnter={e => (e.currentTarget.style.color = 'var(--gold)')}
                     onMouseLeave={e => (e.currentTarget.style.color = 'var(--nude)')}
-                  >{item}</a></li>
-                ))}
-              </ul>
-            </div>
-          ))}
+                  >{item}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Studio + Políticas */}
+          <div>
+            <h4 style={{ fontSize: '.68rem', letterSpacing: '.25em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '1.2rem' }}>Studio</h4>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '.6rem' }}>
+              {[
+                { label: 'Sobre nós',      to: '/#sobre' },
+                { label: 'Depoimentos',    to: '/depoimentos' },
+                { label: 'Minha conta',    to: '/minha-conta' },
+                { label: 'Contato',        to: '/contato' },
+              ].map(item => (
+                <li key={item.label}>
+                  <Link to={item.to} style={{ fontSize: '.82rem', color: 'var(--nude)', textDecoration: 'none', transition: 'color .25s' }}
+                    onMouseEnter={e => (e.currentTarget.style.color = 'var(--gold)')}
+                    onMouseLeave={e => (e.currentTarget.style.color = 'var(--nude)')}
+                  >{item.label}</Link>
+                </li>
+              ))}
+              <li style={{ paddingTop: '.6rem', borderTop: '1px solid rgba(175,160,144,.15)', marginTop: '.2rem' }}>
+                <span style={{ fontSize: '.65rem', letterSpacing: '.2em', textTransform: 'uppercase', color: 'rgba(215,166,41,.5)', display: 'block', marginBottom: '.5rem' }}>Políticas</span>
+              </li>
+              {[
+                { label: 'Termos de Uso',   to: '/termos/uso' },
+                { label: 'Privacidade',     to: '/termos/privacidade' },
+                { label: 'Cancelamento',    to: '/termos/cancelamento' },
+              ].map(item => (
+                <li key={item.label}>
+                  <Link to={item.to} style={{ fontSize: '.78rem', color: 'rgba(175,160,144,.6)', textDecoration: 'none', transition: 'color .25s' }}
+                    onMouseEnter={e => (e.currentTarget.style.color = 'var(--gold)')}
+                    onMouseLeave={e => (e.currentTarget.style.color = 'rgba(175,160,144,.6)')}
+                  >{item.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contato */}
+          <div>
+            <h4 style={{ fontSize: '.68rem', letterSpacing: '.25em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '1.2rem' }}>Contato</h4>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '.8rem' }}>
+              {[
+                { text: 'R. Areado, 11 — Carapicuíba/SP', href: 'https://maps.google.com/?q=R.+Areado,+11+Carapicuiba+SP' },
+                { text: '(11) 99529-7274',                 href: 'https://wa.me/5511995297274' },
+                { text: 'ola@lumiestudio.com.br',          href: 'mailto:ola@lumiestudio.com.br' },
+                { text: 'Seg–Sáb: 9h–19h',                 href: null },
+              ].map(item => (
+                <li key={item.text}>
+                  {item.href
+                    ? <a href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel="noreferrer"
+                        style={{ fontSize: '.82rem', color: 'var(--nude)', textDecoration: 'none', transition: 'color .25s' }}
+                        onMouseEnter={e => (e.currentTarget.style.color = 'var(--gold)')}
+                        onMouseLeave={e => (e.currentTarget.style.color = 'var(--nude)')}
+                      >{item.text}</a>
+                    : <span style={{ fontSize: '.82rem', color: 'rgba(175,160,144,.6)' }}>{item.text}</span>
+                  }
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-        <div style={{ paddingTop: '1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '.72rem', opacity: .5 }}>
+
+        <div style={{ paddingTop: '1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '.72rem', opacity: .45 }}>
           <span>© 2025 Lumiê Studio. Todos os direitos reservados.</span>
-          <span style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
-            <a href="/termos/uso" style={{ color: 'var(--nude)', textDecoration: 'none' }}>Termos</a>
-            <a href="/termos/privacidade" style={{ color: 'var(--nude)', textDecoration: 'none' }}>Privacidade</a>
-            <a href="/termos/cancelamento" style={{ color: 'var(--nude)', textDecoration: 'none' }}>Cancelamento</a>
-            <span>Feito com ✦ para realçar a sua beleza.</span>
-          </span>
+          <span>Feito com ✦ para realçar a sua beleza.</span>
         </div>
       </footer>
     </div>
