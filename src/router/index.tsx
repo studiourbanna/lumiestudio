@@ -6,6 +6,9 @@ import { HomePage } from '../views/public/HomePage';
 import { BookingPage } from '../views/public/BookingPage';
 import { ContactPage } from '../views/public/ContactPage';
 import { TermsPage } from '../views/public/TermsPage';
+import { TermsOfUsePage } from '../views/public/TermsOfUsePage';
+import { PrivacyPolicyPage } from '../views/public/PrivacyPolicyPage';
+import { CancellationPolicyPage } from '../views/public/CancellationPolicyPage';
 import { TestimonialsPage } from '../views/public/TestimonialsPage';
 import { AdminLoginPage } from '../views/admin/AdminLoginPage';
 import { AdminDashboardPage } from '../views/admin/AdminDashboardPage';
@@ -30,7 +33,10 @@ export const AppRouter: React.FC = () => (
       <Route path="/"            element={<PublicLayout><HomePage /></PublicLayout>} />
       <Route path="/agendar"     element={<PublicLayout><BookingPage /></PublicLayout>} />
       <Route path="/contato"     element={<PublicLayout><ContactPage /></PublicLayout>} />
-      <Route path="/termos"      element={<PublicLayout><TermsPage /></PublicLayout>} />
+      <Route path="/termos"              element={<PublicLayout><TermsPage /></PublicLayout>} />
+      <Route path="/termos/uso"           element={<PublicLayout><TermsOfUsePage /></PublicLayout>} />
+      <Route path="/termos/privacidade"   element={<PublicLayout><PrivacyPolicyPage /></PublicLayout>} />
+      <Route path="/termos/cancelamento"  element={<PublicLayout><CancellationPolicyPage /></PublicLayout>} />
       <Route path="/depoimentos" element={<PublicLayout><TestimonialsPage /></PublicLayout>} />
       <Route path="/admin"       element={<AdminLoginPage />} />
       <Route path="/admin/dashboard" element={

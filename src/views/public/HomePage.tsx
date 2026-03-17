@@ -224,7 +224,7 @@ export const HomePage: React.FC = () => {
               Combinamos técnicas modernas com ingredientes naturais, criando uma experiência sensorial completa.
             </p>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '.8rem' }}>
-              {['Ingredientes naturais e veganos selecionados','Ambiente íntimo e acolhedor','Profissionais em constante atualização','Protocolo personalizado para cada cliente'].map(item => (
+              {['Ingredientes naturais selecionados','Ambiente íntimo e acolhedor','Profissionais em constante atualização','Protocolo personalizado para cada cliente'].map(item => (
                 <li key={item} style={{ display: 'flex', gap: '.7rem', fontSize: '.88rem', color: 'var(--text-soft)', alignItems: 'flex-start' }}>
                   <span style={{ color: 'var(--gold)', fontSize: '.6rem', marginTop: '.35rem', flexShrink: 0 }}>✦</span>
                   {item}
@@ -359,7 +359,9 @@ export const HomePage: React.FC = () => {
         <div style={{ paddingTop: '1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '.72rem', opacity: .5 }}>
           <span>© 2025 Lumiê Studio. Todos os direitos reservados.</span>
           <span style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
-            <a href="/termos" style={{ color: 'var(--nude)', textDecoration: 'none' }}>Termos & Políticas</a>
+            <a href="/termos/uso" style={{ color: 'var(--nude)', textDecoration: 'none' }}>Termos</a>
+            <a href="/termos/privacidade" style={{ color: 'var(--nude)', textDecoration: 'none' }}>Privacidade</a>
+            <a href="/termos/cancelamento" style={{ color: 'var(--nude)', textDecoration: 'none' }}>Cancelamento</a>
             <span>Feito com ✦ para realçar a sua beleza.</span>
           </span>
         </div>

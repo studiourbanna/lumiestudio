@@ -237,17 +237,36 @@ const StepContact: React.FC<{ vm: ReturnType<typeof useBookingViewModel> }> = ({
           onChange={e => { vm.setTermsAccepted(e.target.checked); }}
           style={{ marginTop: '.2rem', width: 16, height: 16, accentColor: 'var(--gold)', cursor: 'pointer', flexShrink: 0 }}
         />
-        <span style={{ fontSize: '.85rem', color: 'var(--text-soft)', lineHeight: 1.6 }}>
+        <span style={{ fontSize: '.85rem', color: 'var(--text-soft)', lineHeight: 1.7 }}>
           Li e aceito os{' '}
-          <Link to="/termos" target="_blank" style={{ color: 'var(--gold)', textDecoration: 'underline' }}>Termos de Uso</Link>,{' '}
-          <Link to="/termos" target="_blank" style={{ color: 'var(--gold)', textDecoration: 'underline' }}>Política de Privacidade</Link>{' '}
-          e a{' '}
-          <Link to="/termos" target="_blank" style={{ color: 'var(--gold)', textDecoration: 'underline' }}>Política de Cancelamento</Link>{' '}
-          do Lumiê Studio.
+          <Link to="/termos/uso" target="_blank" style={{ color: 'var(--gold)', textDecoration: 'underline' }}>
+            Termos de Uso
+          </Link>
+          ,{' '}
+          <Link to="/termos/privacidade" target="_blank" style={{ color: 'var(--gold)', textDecoration: 'underline' }}>
+            Política de Privacidade
+          </Link>
+          {' '}e a{' '}
+          <Link to="/termos/cancelamento" target="_blank" style={{ color: 'var(--gold)', textDecoration: 'underline' }}>
+            Política de Cancelamento
+          </Link>
+          {' '}do Lumiê Studio.
         </span>
       </label>
-      {vm.termsError && <p style={{ fontSize: '.78rem', color: '#ef4444', marginTop: '.6rem', marginLeft: '1.6rem' }}>⚠ {vm.termsError}</p>}
+      {vm.termsError && (
+        <p style={{ fontSize: '.78rem', color: '#ef4444', marginTop: '.6rem', marginLeft: '1.6rem' }}>
+          ⚠ {vm.termsError}
+        </p>
+      )}
     </div>
+
+    {/* Read reminder */}
+    {!vm.termsAccepted && (
+      <p style={{ fontSize: '.75rem', color: 'var(--nude)', textAlign: 'center', marginTop: '.6rem', lineHeight: 1.6 }}>
+        Você precisa ler e aceitar os termos antes de confirmar o agendamento.{' '}
+        <Link to="/termos/uso" target="_blank" style={{ color: 'var(--gold)' }}>Clique aqui para ler</Link>
+      </p>
+    )}
 
     <NavButtons vm={vm} isLast loading={vm.paymentLoading} />
   </div>
