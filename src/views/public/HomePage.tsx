@@ -315,7 +315,7 @@ export const HomePage: React.FC = () => {
 
       {/* ── FOOTER ── */}
       <footer style={{ background: 'var(--brown-dark)', color: 'var(--nude)', padding: '4rem 5% 2rem' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1.5fr', gap: '3rem', paddingBottom: '2.5rem', borderBottom: '1px solid rgba(175,160,144,.15)' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1.5fr', gap: '3rem', paddingBottom: '2.5rem', borderBottom: '1px solid rgba(175,160,144,.15)' }} className="footer-grid">
 
           {/* Brand + social */}
           <div>

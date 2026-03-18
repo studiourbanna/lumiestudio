@@ -76,7 +76,7 @@ export const CancellationPolicyPage: React.FC = () => {
         </div>
 
         <Section num="01" title="Cancelamento pela cliente">
-          <p>Para cancelar, entre em contato pelo WhatsApp <strong style={{ color: 'var(--brown)' }}>(11) 99529-7274</strong> ou e-mail <strong style={{ color: 'var(--brown)' }}>dani@lumiestudio.com.br</strong>.</p>
+          <p>Para cancelar, entre em contato pelo WhatsApp <strong style={{ color: 'var(--brown)' }}>(11) 99529-7274</strong> ou e-mail <strong style={{ color: 'var(--brown)' }}>ola@lumiestudio.com.br</strong>.</p>
           <Ul items={[
             'Com 24h ou mais de antecedência: reembolso integral (100%)',
             'Entre 12h e 24h antes do horário: reembolso de 50% do valor pago',
@@ -131,7 +131,7 @@ export const CancellationPolicyPage: React.FC = () => {
         <Section num="08" title="Contato para cancelamentos">
           <Ul items={[
             'WhatsApp: (11) 99529-7274 — resposta mais rápida',
-            'E-mail: dani@lumiestudio.com.br',
+            'E-mail: ola@lumiestudio.com.br',
             'Horário de atendimento: Segunda a Sábado, 9h às 19h',
           ]} />
         </Section>

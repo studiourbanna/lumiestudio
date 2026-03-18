@@ -93,7 +93,7 @@ export const Navbar: React.FC = () => {
           }}
         >Agendar</Link>
 
-        {/* Mobile hamburger */}
+        {/* Mobile hamburger — left side */}
         <button
           className="nav-hamburger"
           onClick={() => setMenuOpen(o => !o)}
@@ -103,6 +103,7 @@ export const Navbar: React.FC = () => {
             alignItems: 'center', gap: '5px',
             width: 40, height: 40, background: 'transparent', border: 'none',
             cursor: 'pointer', zIndex: 201, padding: '6px',
+            order: -1,
           }}
         >
           <span style={{
@@ -125,7 +126,6 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile overlay */}
       <div
-        className="nav-overlay"
         onClick={() => setMenuOpen(false)}
         style={{
           position: 'fixed', inset: 0, zIndex: 198,
@@ -134,24 +134,26 @@ export const Navbar: React.FC = () => {
           opacity: menuOpen ? 1 : 0,
           pointerEvents: menuOpen ? 'auto' : 'none',
           transition: 'opacity .3s ease',
+          display: 'none',
         }}
+        className="nav-overlay"
       />
 
-      {/* Mobile drawer */}
+      {/* Mobile drawer — slides from LEFT */}
       <div
-        className="nav-drawer"
         style={{
-          position: 'fixed', top: 0, right: 0, bottom: 0,
+          position: 'fixed', top: 0, left: 0, bottom: 0,
           width: 'min(300px, 85vw)',
           zIndex: 199,
           background: 'var(--white)',
-          boxShadow: '-8px 0 40px rgba(58,46,30,.18)',
-          transform: menuOpen ? 'translateX(0)' : 'translateX(100%)',
+          boxShadow: '8px 0 40px rgba(58,46,30,.18)',
+          transform: menuOpen ? 'translateX(0)' : 'translateX(-100%)',
           transition: 'transform .35s cubic-bezier(.19,1,.22,1)',
           display: 'flex', flexDirection: 'column',
           paddingTop: '90px',
           overflowY: 'auto',
         }}
+        className="nav-drawer"
       >
         {/* Logo inside drawer */}
         <div style={{ padding: '0 1.8rem 1.5rem', borderBottom: '1px solid var(--blush-dark)' }}>

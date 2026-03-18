@@ -61,7 +61,7 @@ export const PrivacyPolicyPage: React.FC = () => {
         </div>
         <Section num="01" title="Controlador dos dados">
           <p><strong style={{ color: 'var(--brown)' }}>Lumiê Studio — Beleza &amp; Estética</strong></p>
-          <p><strong style={{ color: 'var(--brown)' }}>DPO (Encarregada):</strong> Dani Martins — dani@lumiestudio.com.br</p>
+          <p><strong style={{ color: 'var(--brown)' }}>DPO (Encarregada):</strong> Simone Mariano — ola@lumiestudio.com.br</p>
           <p>R. Areado, 11 — Carapicuíba/SP, CEP 06327-170 · (11) 99529-7274</p>
         </Section>
         <Section num="02" title="Dados que coletamos">
@@ -128,13 +128,13 @@ export const PrivacyPolicyPage: React.FC = () => {
               </div>
             ))}
           </div>
-          <p>Envie seu pedido para <strong style={{ color: 'var(--brown)' }}>dani@lumiestudio.com.br</strong>. Responderemos em até 15 dias úteis.</p>
+          <p>Envie seu pedido para <strong style={{ color: 'var(--brown)' }}>ola@lumiestudio.com.br</strong>. Responderemos em até 15 dias úteis.</p>
         </Section>
         <Section num="08" title="Cookies">
           <p>Utilizamos apenas cookies funcionais essenciais para o sistema de agendamento. Nenhum cookie de rastreamento ou publicidade é utilizado.</p>
         </Section>
         <Section num="09" title="Contato">
-          <p>Dúvidas ou solicitações: <strong style={{ color: 'var(--brown)' }}>dani@lumiestudio.com.br</strong> · (11) 99529-7274</p>
+          <p>Dúvidas ou solicitações: <strong style={{ color: 'var(--brown)' }}>ola@lumiestudio.com.br</strong> · (11) 99529-7274</p>
           <p>Você também pode recorrer à ANPD: <strong>gov.br/anpd</strong></p>
         </Section>
       </div>
